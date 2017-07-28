@@ -139,7 +139,7 @@ namespace Inspinia_MVC5_SeedProject.DAL
                 new Enrollment{AthleteID=12, MeasurementID=4,Result=2, Grade=7, EnrollmentDate=DateTime.Parse("2017-07-28")},
                 new Enrollment{AthleteID=12, MeasurementID=5,Result=91, Grade=5, EnrollmentDate=DateTime.Parse("2017-07-28")},
                 new Enrollment{AthleteID=12, MeasurementID=6,Result=33, Grade=6, EnrollmentDate=DateTime.Parse("2017-07-28")},
-                new Enrollment{AthleteID=12, MeasurementID=7,Result=173, Grade=5, EnrollmentDate=DateTime.Parse("2017-07-28")},
+                new Enrollment{AthleteID=12, MeasurementID=7,Result=173, Grade=5, EnrollmentDate=DateTime.Parse("2017-07-28")}
             };
 
             enrollments.ForEach(e => context.Enrollments.Add(e));
