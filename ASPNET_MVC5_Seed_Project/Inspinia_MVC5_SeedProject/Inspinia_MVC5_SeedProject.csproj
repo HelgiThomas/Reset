@@ -195,6 +195,7 @@
     <Content Include="Content\patterns\otis_redding.png" />
     <Content Include="Content\patterns\shattered.png" />
     <Content Include="Content\patterns\triangular.png" />
+    <Content Include="Content\plugins\dataTables\datatables.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
@@ -245,6 +246,7 @@
     <None Include="Properties\PublishProfiles\HostDemo.pubxml" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\plugins\dataTables\datatables.min.js" />
     <Content Include="Scripts\plugins\metisMenu\metisMenu.min.js" />
     <Content Include="Scripts\plugins\pace\pace.min.js" />
     <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />

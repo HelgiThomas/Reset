@@ -47,6 +47,14 @@ namespace Inspinia_MVC5_SeedProject
             bundles.Add(new StyleBundle("~/font-awesome/css").Include(
                       "~/fonts/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
 
+            // dataTables css styles
+            bundles.Add(new StyleBundle("~/Content/plugins/dataTables/dataTablesStyles").Include(
+                      "~/Content/plugins/dataTables/datatables.min.css"));
+
+            // dataTables 
+            bundles.Add(new ScriptBundle("~/plugins/dataTables").Include(
+                      "~/Scripts/plugins/dataTables/datatables.min.js"));
+
         }
     }
 }
