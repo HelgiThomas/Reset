@@ -19,7 +19,7 @@ namespace Inspinia_MVC5_SeedProject.Models
         public string Name { get; set; }
 
         // Represents the sex of the athlete, either Male or Female
-        public string Sex { get; set; }
+        public Sex Sex { get; set; }
 
         // Represents the SocialSecurity number (kennitala) of the athlete
         public string SocialSecurity { get; set; }

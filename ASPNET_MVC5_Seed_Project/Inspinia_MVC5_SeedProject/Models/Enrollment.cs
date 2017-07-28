@@ -14,8 +14,8 @@ namespace Inspinia_MVC5_SeedProject.Models
         // Represents the ID of the athlete in the given enrollment
         public int AthleteID { get; set; }
 
-        // Represents the ID of the student in the given enrollment
-        public int StudentID { get; set; }
+        // Represents the ID of the measurement in the given enrollment
+        public int MeasurementID { get; set; }
 
         // The actual athlete
         public virtual Athlete Athlete { get; set; }
@@ -27,7 +27,7 @@ namespace Inspinia_MVC5_SeedProject.Models
         public DateTime EnrollmentDate { get; set; }
 
         // Represents the result of the measurement for the given athlete
-        public int? Result { get; set; }
+        public double? Result { get; set; }
 
         public int? Grade { get; set; }
     }

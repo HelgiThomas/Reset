@@ -25,5 +25,10 @@ namespace Inspinia_MVC5_SeedProject.Models
         // kg-> kilograms, cm-> centimeters, m-> meters, sec-> seconds
         // nr-> number, grade-> grade on a certain scale
         public Unit Unit { get; set; }
+
+        // Represents the enrollment of the in the various measurements
+        // The relationship is a one-to-many between Student and Enrollment
+        // Enrollments is a navigation property
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
