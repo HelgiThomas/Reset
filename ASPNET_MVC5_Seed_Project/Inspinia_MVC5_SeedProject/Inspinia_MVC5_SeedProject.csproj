@@ -275,6 +275,7 @@
     <Content Include="Views\Athlete\Details.cshtml" />
     <Content Include="Views\Athlete\Create.cshtml" />
     <Content Include="Views\Athlete\Edit.cshtml" />
+    <Content Include="Views\Athlete\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

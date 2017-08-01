@@ -3,6 +3,7 @@ using Inspinia_MVC5_SeedProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,7 +15,7 @@ namespace Inspinia_MVC5_SeedProject.Controllers
     {
        private ResetContext db = new ResetContext();
 
-            
+        // Returns all athletes in the database
         // GET: Athlete
         public ActionResult Index()
         {
@@ -39,12 +40,14 @@ namespace Inspinia_MVC5_SeedProject.Controllers
             return View(athlete);
         }
 
+        // Action that returns the view for creating an athlete
         // GET: Student/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        // Action that is called when an athlete is created
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Name, Sex, SocialSecurity, Sport, Team")]Athlete athlete)
@@ -66,6 +69,7 @@ namespace Inspinia_MVC5_SeedProject.Controllers
             return View(athlete);
         }
 
+        // Returns the view for editing an athlete 
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,6 +84,7 @@ namespace Inspinia_MVC5_SeedProject.Controllers
             return View(athlete);
         }
 
+        // Action that does the edit for an athlete
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
@@ -107,5 +112,46 @@ namespace Inspinia_MVC5_SeedProject.Controllers
             return View(athleteToUpdate);
         }
 
+        // Action called to return the view for deleting a specific athlete
+        // GET: Course/Delete/5
+        // GET: Student/Delete/5
+        public ActionResult Delete(int? id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+            Athlete athlete = db.Athletes.Find(id);
+            if (athlete == null)
+            {
+                return HttpNotFound();
+            }
+            return View(athlete);
+        }
+
+
+        // Action that performs the deleting of an athlete
+        // POST: Student/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                Athlete athlete = db.Athletes.Find(id);
+                db.Athletes.Remove(athlete);
+                db.SaveChanges();
+            }
+            catch (RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

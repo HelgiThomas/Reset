@@ -55,7 +55,9 @@
                                     <td>@athlete.SocialSecurity</td>
                                     <td>@athlete.Sport</td>
                                     <td>@athlete.Team</td>
-                                    <td>@Html.ActionLink("Edit", "Edit", new { id = athlete.AthleteID }) |</td>
+                                    <td>@Html.ActionLink("Breyta", "Edit", new { id = athlete.AthleteID }) | 
+                                        @Html.ActionLink("Eyða", "Delete", new { id = athlete.AthleteID })
+                                    </td>
                                 </tr>
                             }
 
