@@ -4,6 +4,10 @@
     ViewBag.Title = "Main";
 }
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -32,13 +36,14 @@
                                 <th>Kennitala</th>
                                 <th>Íþrótt</th>
                                 <th>Lið</th>
+                                <th>Aðgerðir</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var athlete in Model)
                             {
                                 <tr>
-                                    <td>@athlete.Name</td>
+                                    <td>@Html.ActionLink(@athlete.Name, "Details", "Athlete", new { id = athlete.AthleteID }, null)</td>
                                     @if (@athlete.Sex == Inspinia_MVC5_SeedProject.Models.Sex.Male)
                                     {
                                         <td>Kk</td>
@@ -50,6 +55,7 @@
                                     <td>@athlete.SocialSecurity</td>
                                     <td>@athlete.Sport</td>
                                     <td>@athlete.Team</td>
+                                    <td>@Html.ActionLink("Edit", "Edit", new { id = athlete.AthleteID }) |</td>
                                 </tr>
                             }
 
